@@ -23,9 +23,9 @@ public class ModItems {
 	
 	public static ItemPickaxe itemLvlPick = new ItemExperiencePickaxe(enumToolMaterialExperience);
 	public static ItemPickaxe itemPowerPick = new ItemPowerPickaxe(enumToolMaterialPower);
-	public static ItemPowerUpRefill itemPowerUpRefill = new ItemPowerUpRefill();
-	public static ItemEnderCapacitor itemEnderCapacitor = new ItemEnderCapacitor();
-	public static ItemStoneOfExperience itemStoneOfExperience = new ItemStoneOfExperience();
+	public static ItemPowerUpRefill itemPowerUpRefill;
+	public static ItemEnderCapacitor itemEnderCapacitor;
+	public static ItemStoneOfExperience itemStoneOfExperience;
 	
 	public static void init(){
 		itemEnderCapacitor = new ItemEnderCapacitor();
