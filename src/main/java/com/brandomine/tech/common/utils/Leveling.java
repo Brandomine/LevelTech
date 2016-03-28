@@ -1,5 +1,5 @@
 package com.brandomine.tech.common.utils;
 
-public class Leveling {
+public class Leveling implements Capability.IStorage<T>{
 
 }
