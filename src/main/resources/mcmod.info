@@ -1,0 +1,16 @@
+[
+{
+  "modid": "tech",
+  "name": "Level Tech",
+  "description": "Level your character up to get new tools and awesome powers!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Brandomine"],
+  "credits": "Thanks Pahimar, Glassmaker, and WireSegal for your help!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
