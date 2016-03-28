@@ -2,6 +2,9 @@ package com.brandomine.tech.client.hud;
 
 import org.lwjgl.opengl.GL11;
 
+import com.brandomine.tech.common.capability.ILevelHandler;
+import com.brandomine.tech.common.capability.LevelBuffer;
+
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -32,6 +35,7 @@ public class HUDLevelBar extends Gui{
 		}
 		
 		ScaledResolution scaled = new ScaledResolution(mc);
+		LevelBuffer buff = new LevelBuffer();
 		
 		//if(props == null || props.getMaxXP() == 0){
 			return;
@@ -39,10 +43,8 @@ public class HUDLevelBar extends Gui{
 		
 		//float xPos = 0.002F;
 		//float yPos = 0.24F;
-		
-		//float expAmount = props.getCurrentXP();
-		//float expToNext = props.getXPtoNext();
-		
+
+		//int expAmount = buff.getXp();
 		
 		//int amount = Math.max((int) (182 *  (1 - (double)(expAmount) / expToNext)), 0);
 		
