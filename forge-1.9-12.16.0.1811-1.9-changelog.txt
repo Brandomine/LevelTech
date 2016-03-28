@@ -1,5 +1,18 @@
 Changelog:
-Build 1808:
+Build 1811:
+	fry: Enabled diffuse lighting by default in UnpackedBakedQuad.Builder.
+	fry: Fixed crosshair always being white, closes #2653.
+
+Build 1.9-12.16.0.1810-1.9:
+	fry: Fixed diffuse lighting not being applied if forge lighting pipeline is disabled, closes #2651
+
+Build 1.9-12.16.0.1809-1.9:
+	mezz:
+		Make tooltips layout in the right direction, wrap if there is no room
+		
+		Same as #2649, but for Minecraft 1.9
+
+Build 1.8.9-11.15.1.1808:
 	mezz:
 		Make tooltips layout in the right direction, wrap if there is no room
 		

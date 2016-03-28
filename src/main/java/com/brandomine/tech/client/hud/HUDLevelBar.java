@@ -2,8 +2,6 @@ package com.brandomine.tech.client.hud;
 
 import org.lwjgl.opengl.GL11;
 
-import com.brandomine.tech.common.utils.ExtendedPlayer;
-
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -29,34 +27,33 @@ public class HUDLevelBar extends Gui{
 	
 	@SubscribeEvent(priority = EventPriority.NORMAL)
 	public void onRenderExperienceBar(RenderGameOverlayEvent event){
-		if(event.isCancelable() || event.type != ElementType.EXPERIENCE){
+		if(event.isCancelable() || event.getType() != ElementType.EXPERIENCE){
 			return;
 		}
 		
-		ExtendedPlayer props = ExtendedPlayer.get(this.mc.thePlayer);
 		ScaledResolution scaled = new ScaledResolution(mc);
 		
-		if(props == null || props.getMaxXP() == 0){
+		//if(props == null || props.getMaxXP() == 0){
 			return;
-		}
+		//}
 		
-		float xPos = 0.002F;
-		float yPos = 0.24F;
+		//float xPos = 0.002F;
+		//float yPos = 0.24F;
 		
-		float expAmount = props.getCurrentXP();
-		float expToNext = props.getXPtoNext();
+		//float expAmount = props.getCurrentXP();
+		//float expToNext = props.getXPtoNext();
 		
 		
-		int amount = Math.max((int) (182 *  (1 - (double)(expAmount) / expToNext)), 0);
+		//int amount = Math.max((int) (182 *  (1 - (double)(expAmount) / expToNext)), 0);
 		
-		int x = (int)(xPos * scaled.getScaledWidth()) * 4;
-        int y = (int)(yPos * scaled.getScaledHeight()) * 4;
+		//int x = (int)(xPos * scaled.getScaledWidth()) * 4;
+       // int y = (int)(yPos * scaled.getScaledHeight()) * 4;
        
-        if(props.getCurrentXP() != 0 || props.getCurrentLevel() > 1){
-        	this.mc.fontRendererObj.drawStringWithShadow("Current Level: " + props.getCurrentLevel(), x, y, 0xffFFFFFF);
-        	this.mc.fontRendererObj.drawStringWithShadow("XP: " + props.getCurrentXP() + " / " + props.getMaxXP(), x, y - 10 , 0xffFFFFFF);
-        	this.mc.fontRendererObj.drawStringWithShadow("Power: " + props.getCurrentPower() + " / " + props.getMaxPower(), x, y - 20 , 0xffFFFFFF);
-        }
+       // if(props.getCurrentXP() != 0 || props.getCurrentLevel() > 1){
+       // 	this.mc.fontRendererObj.drawStringWithShadow("Current Level: " + props.getCurrentLevel(), x, y, 0xffFFFFFF);
+       // 	this.mc.fontRendererObj.drawStringWithShadow("XP: " + props.getCurrentXP() + " / " + props.getMaxXP(), x, y - 10 , 0xffFFFFFF);
+       //	this.mc.fontRendererObj.drawStringWithShadow("Power: " + props.getCurrentPower() + " / " + props.getMaxPower(), x, y - 20 , 0xffFFFFFF);
+       // }
 		
 		
 		}
