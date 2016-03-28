@@ -33,6 +33,45 @@ public class ExtendedPlayer implements IExtendedEntityProperties{
 	public static final int ENDER_POWER_WATCHER = 25;
 	public static final int OPEN_STONE = 26;
 	public static final int RESEARCH_EFFECTS = 27;
+	public static final int RESEARCH_1 = 28;
+	public static final int RESEARCH_2 = 29;
+	public static final int RESEARCH_3 = 30;
+	public static final int RESEARCH_4 = 31;
+	public static final int RESEARCH_5 = 32;
+	public static final int RESEARCH_6 = 33;
+	public static final int RESEARCH_7 = 34;
+	public static final int RESEARCH_8 = 35;
+	public static final int RESEARCH_9 = 36;
+	public static final int RESEARCH_10 = 37;
+	public static final int RESEARCH_11 = 38;
+	public static final int EFFECT_1 = 39;
+	public static final int EFFECT_2 = 40;
+	public static final int EFFECT_3 = 41;
+	public static final int EFFECT_4 = 42;
+	
+	/*
+	Research id's
+	1 = Power Pickaxe
+	2 = Power Regeneration
+	3 = Power Experience Pickaxe
+	4 = Ender Capacitor
+	5 = Glowed Mana Blocks
+	6 = Effects Sword
+	7 = Beginners Armor
+	8 = Power Effects Sword
+	9 = Better Power Regeneration
+	10 = Middle Tier Armor
+	11 = Power Experience Armor
+	
+	Effect Research id's
+	1 = Night Vision
+	2 = Power Hungry (Lets player use power instead of food for hunger)
+	3 = Haste
+	4 = Mining Power (Lets player mine faster
+	
+	*/
+	
+	
 
 	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
@@ -44,6 +83,17 @@ public class ExtendedPlayer implements IExtendedEntityProperties{
 		this.player.getDataWatcher().addObject(ENDER_POWER_WATCHER, 0);
 		this.player.getDataWatcher().addObject(OPEN_STONE, 0);
 		this.player.getDataWatcher().addObject(RESEARCH_EFFECTS, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_1, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_2, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_3, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_4, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_5, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_6, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_7, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_8, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_9, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_10, 0);
+		this.player.getDataWatcher().addObject(RESEARCH_11, 0);
 	}
 
 	public static final void register(EntityPlayer player) {
@@ -136,8 +186,53 @@ public class ExtendedPlayer implements IExtendedEntityProperties{
 		return player.getDataWatcher().getWatchableObjectInt(OPEN_STONE);
 	}
 	
+	//Research Stuff
 	public final int didPlayerResearchEffects(){
 		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_EFFECTS);
+	}
+	
+	public final int didPlayerResearch1(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_1);
+	}
+	
+	public final int didPlayerResearch2(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_2);
+	}
+	
+	public final int didPlayerResearch3(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_3);
+	}
+	
+	public final int didPlayerResearch4(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_4);
+	}
+	
+	public final int didPlayerResearch5(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_5);
+	}
+	
+	public final int didPlayerResearch6(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_6);
+	}
+	
+	public final int didPlayerResearch7(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_7);
+	}
+	
+	public final int didPlayerResearch8(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_8);
+	}
+	
+	public final int didPlayerResearch9(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_9);
+	}
+	
+	public final int didPlayerResearch10(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_10);
+	}
+	
+	public final int didPlayerResearch11(){
+		return player.getDataWatcher().getWatchableObjectInt(RESEARCH_11);
 	}
 
 	public final void addPower(int amount){
@@ -264,7 +359,51 @@ public class ExtendedPlayer implements IExtendedEntityProperties{
 		}
 	}
 	
-	public final void playerOpenStone(int value){
+	public final void playerResearchEffects(int value){
 		player.getDataWatcher().updateObject(RESEARCH_EFFECTS, value);
+	}
+	
+	public final void playerResearch1(int value){
+		player.getDataWatcher().updateObject(RESEARCH_1, value);
+	}
+	
+	public final void playerResearch2(int value){
+		player.getDataWatcher().updateObject(RESEARCH_2, value);
+	}
+	
+	public final void playerResearch3(int value){
+		player.getDataWatcher().updateObject(RESEARCH_3, value);
+	}
+	
+	public final void playerResearch4(int value){
+		player.getDataWatcher().updateObject(RESEARCH_4, value);
+	}
+	
+	public final void playerResearch5(int value){
+		player.getDataWatcher().updateObject(RESEARCH_5, value);
+	}
+	
+	public final void playerResearch6(int value){
+		player.getDataWatcher().updateObject(RESEARCH_6, value);
+	}
+	
+	public final void playerResearch7(int value){
+		player.getDataWatcher().updateObject(RESEARCH_7, value);
+	}
+	
+	public final void playerResearch8(int value){
+		player.getDataWatcher().updateObject(RESEARCH_8, value);
+	}
+	
+	public final void playerResearch9(int value){
+		player.getDataWatcher().updateObject(RESEARCH_9, value);
+	}
+	
+	public final void playerResearch10(int value){
+		player.getDataWatcher().updateObject(RESEARCH_10, value);
+	}
+	
+	public final void playerResearch11(int value){
+		player.getDataWatcher().updateObject(RESEARCH_11, value);
 	}
 }
