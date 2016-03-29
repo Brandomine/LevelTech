@@ -2,10 +2,8 @@ package com.brandomine.tech.common.event;
 
 import java.util.Random;
 
-import com.brandomine.tech.common.init.ModItems;
-import com.brandomine.tech.common.lib.Names.Items;
+import com.brandomine.tech.common.leveling.PlayerLevelInfo;
 import com.brandomine.tech.common.network.PacketHandler;
-import com.brandomine.tech.common.utils.SyncPlayerPropsMessage;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,23 +17,10 @@ import net.minecraftforge.event.world.BlockEvent;
 
 public class TechEventHandler {
 	@SubscribeEvent
-	public void onEntityConstructing(EntityConstructing event) {
-	//	if (event.getEntity() instanceof EntityPlayer) {
-	//		if (ExtendedPlayer.get((EntityPlayer) event.getEntity()) == null)
-	//			ExtendedPlayer.register((EntityPlayer) event.getEntity());
-	//	}
-	}
-
-	@SubscribeEvent
-	public void onEntityJoinWorld(EntityJoinWorldEvent event) {
-		if (event.getEntity() instanceof EntityPlayer && !event.getEntity().worldObj.isRemote) {
-			PacketHandler.sendTo(new SyncPlayerPropsMessage((EntityPlayer) event.getEntity()), (EntityPlayerMP) event.getEntity());
+	public void entityConstructing(EntityConstructing event){
+		if(event.getEntity() instanceof EntityPlayerMP){
+			PacketHandler.sendTo(new SyncPlayerPropsMessage(PlayerLevelInfo.getLevelInfo(EntityPlayer) event.getEntity), (EntityPlayerMP) event.getEntity());
 		}
-	}
-
-	@SubscribeEvent
-	public void onClonePlayer(PlayerEvent.Clone event) {
-	//	ExtendedPlayer.get(event.getEntityPlayer()).copy(ExtendedPlayer.get(event.getOriginal()));
 	}
 	
 	@SubscribeEvent
