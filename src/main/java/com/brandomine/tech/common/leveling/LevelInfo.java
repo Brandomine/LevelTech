@@ -19,6 +19,11 @@ public class LevelInfo {
 		this.xp = xp;
 	}
 	
+	public LevelInfo(int xp, int maxXp) {
+		this(xp, maxXp, maxXp);
+	}
+
+
 	public int getLevel(){
 		return level;
 	}

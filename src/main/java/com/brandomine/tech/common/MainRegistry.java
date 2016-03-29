@@ -4,13 +4,15 @@ import com.brandomine.tech.client.hud.HUDLevelBar;
 import com.brandomine.tech.common.event.TechEventHandler;
 import com.brandomine.tech.common.init.ModBlocks;
 import com.brandomine.tech.common.init.ModItems;
+import com.brandomine.tech.common.leveling.capabilities.ILevelCapability;
 import com.brandomine.tech.common.lib.Reference;
-import com.brandomine.tech.common.network.PacketHandler;
 import com.brandomine.tech.common.proxy.CommonProxy;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -29,13 +31,15 @@ public class MainRegistry
 	@SidedProxy(clientSide = "com.brandomine.tech.common.proxy.ClientProxy", serverSide = "com.brandomine.tech.common.proxy.CommonProxy")
 	public static CommonProxy proxy;
 	
+	@CapabilityInject(ILevelCapability.class)
+	public static final Capability<ILevelCapability> CAPABILITY_LEVEL = null;
+	
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event){
 		ModItems.init();
 		proxy.preInit();
 		//ModBlocks.init();
-		PacketHandler.registerPackets();
-	}
+		}
 	
     @EventHandler
     public void init(FMLInitializationEvent event){

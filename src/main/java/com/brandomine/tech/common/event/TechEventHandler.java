@@ -3,7 +3,8 @@ package com.brandomine.tech.common.event;
 import java.util.Random;
 
 import com.brandomine.tech.common.leveling.PlayerLevelInfo;
-import com.brandomine.tech.common.network.PacketHandler;
+import com.brandomine.tech.common.network.LevelUpdateMessage;
+import com.brandomine.tech.common.network.TechNetwork;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +20,7 @@ public class TechEventHandler {
 	@SubscribeEvent
 	public void entityConstructing(EntityConstructing event){
 		if(event.getEntity() instanceof EntityPlayerMP){
-			PacketHandler.sendTo(new SyncPlayerPropsMessage(PlayerLevelInfo.getLevelInfo(EntityPlayer) event.getEntity), (EntityPlayerMP) event.getEntity());
+			TechNetwork.networkWrapper.sendTo(new LevelUpdateMessage(PlayerLevelInfo.getLevelInfo((EntityPlayer) event.getEntity())), (EntityPlayerMP) event.getEntity());
 		}
 	}
 	
