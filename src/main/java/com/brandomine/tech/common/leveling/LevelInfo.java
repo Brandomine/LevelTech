@@ -22,7 +22,7 @@ public class LevelInfo {
 	}
 	
 	public LevelInfo(int xp, int maxXp) {
-		this(0, xp, maxXp);
+		this(1, xp, maxXp);
 	}
 
 
