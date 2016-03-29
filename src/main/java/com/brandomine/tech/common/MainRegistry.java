@@ -5,7 +5,9 @@ import com.brandomine.tech.common.event.TechEventHandler;
 import com.brandomine.tech.common.init.ModBlocks;
 import com.brandomine.tech.common.init.ModItems;
 import com.brandomine.tech.common.leveling.capabilities.ILevelCapability;
+import com.brandomine.tech.common.leveling.capabilities.ModCapabilities;
 import com.brandomine.tech.common.lib.Reference;
+import com.brandomine.tech.common.network.TechNetwork;
 import com.brandomine.tech.common.proxy.CommonProxy;
 
 import net.minecraft.client.Minecraft;
@@ -38,6 +40,8 @@ public class MainRegistry
 	public void preinit(FMLPreInitializationEvent event){
 		ModItems.init();
 		proxy.preInit();
+		TechNetwork.init();
+		ModCapabilities.init();
 		//ModBlocks.init();
 		}
 	

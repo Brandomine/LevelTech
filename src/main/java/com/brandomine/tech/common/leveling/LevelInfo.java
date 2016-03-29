@@ -5,7 +5,9 @@ import com.brandomine.tech.common.leveling.capabilities.LevelStorage;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class LevelInfo {
-	private int xp, maxXp, level;
+	private int xp = 0;
+	private int level = 1;
+	private int maxXp = 20;
 	
 	public LevelInfo(LevelStorage level){
 		this.level = this.getLevel();
@@ -20,7 +22,7 @@ public class LevelInfo {
 	}
 	
 	public LevelInfo(int xp, int maxXp) {
-		this(xp, maxXp, maxXp);
+		this(0, xp, maxXp);
 	}
 
 

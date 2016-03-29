@@ -11,7 +11,7 @@ public class TechNetwork {
 	
 	private static int discriminatorCount = 0;
 	
-	private static void init(){
+	public static void init(){
 		networkWrapper.registerMessage(LevelUpdateMessageHandler.class, LevelUpdateMessage.class, discriminatorCount++, Side.CLIENT);
 	}
 }

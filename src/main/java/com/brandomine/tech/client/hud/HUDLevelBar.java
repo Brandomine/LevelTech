@@ -26,12 +26,12 @@ import net.minecraftforge.common.capabilities.Capability;
 
 @SideOnly(Side.CLIENT)
 public class HUDLevelBar extends Gui{
-	private Minecraft mc;
 	private FontRenderer FR;
+	private Minecraft mc;
 
 	public HUDLevelBar(Minecraft mc){
 		super();
-		this.mc = mc;
+		this.mc = Minecraft.getMinecraft();
 	}
 
 	@SubscribeEvent(priority = EventPriority.NORMAL)
@@ -45,13 +45,13 @@ public class HUDLevelBar extends Gui{
 
 		float xPos = 0.002F;
 		float yPos = 0.24F;
-
+		
 		int x = (int)(xPos * scaled.getScaledWidth()) * 4;
 		int y = (int)(yPos * scaled.getScaledHeight()) * 4;
 
 		// if(level.getXp() != 0 || level.getLevel() > 1){
-		mc.fontRendererObj.drawString("Current Level: " + level.getLevel(), x, y, 0xffFFFFFF);
-		mc.fontRendererObj.drawString("XP: " + level.getXp() + " / " + level.getMaxXp(), x, y - 10 , 0xffFFFFFF);
+		this.mc.fontRendererObj.drawString("Current Level: " + level.getLevel(), x, y, 0xffFFFFFF);
+		this.mc.fontRendererObj.drawString("XP: " + level.getXp() + " / " + level.getMaxXp(), x, y - 10 , 0xffFFFFFF);
 		//this.mc.fontRendererObj.drawStringWithShadow("Power: " + props.getCurrentPower() + " / " + props.getMaxPower(), x, y - 20 , 0xffFFFFFF);
 		// }
 	}
