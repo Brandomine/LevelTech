@@ -2,6 +2,11 @@ package com.brandomine.tech.client.hud;
 
 import org.lwjgl.opengl.GL11;
 
+import com.brandomine.tech.common.leveling.LevelInfo;
+import com.brandomine.tech.common.leveling.PlayerLevelInfo;
+import com.brandomine.tech.common.leveling.capabilities.LevelCapability;
+import com.brandomine.tech.common.leveling.capabilities.LevelStorage;
+
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -11,6 +16,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
@@ -27,35 +33,26 @@ public class HUDLevelBar extends Gui{
 		super();
 		this.mc = mc;
 	}
-	
+
 	@SubscribeEvent(priority = EventPriority.NORMAL)
-	public void onRenderExperienceBar(RenderGameOverlayEvent event){
+	public void onRenderExperienceBar(RenderGameOverlayEvent.Post event){
 		if(event.isCancelable() || event.getType() != ElementType.EXPERIENCE){
 			return;
 		}
-		
-		ScaledResolution scaled = new ScaledResolution(mc);
-		
-		//if(props == null || props.getMaxXP() == 0){
-			return;
-		//}
-		
-		//float xPos = 0.002F;
-		//float yPos = 0.24F;
 
-		//int expAmount = buff.getXp();
-		
-		//int amount = Math.max((int) (182 *  (1 - (double)(expAmount) / expToNext)), 0);
-		
-		//int x = (int)(xPos * scaled.getScaledWidth()) * 4;
-       // int y = (int)(yPos * scaled.getScaledHeight()) * 4;
-       
-       // if(props.getCurrentXP() != 0 || props.getCurrentLevel() > 1){
-       // 	this.mc.fontRendererObj.drawStringWithShadow("Current Level: " + props.getCurrentLevel(), x, y, 0xffFFFFFF);
-       // 	this.mc.fontRendererObj.drawStringWithShadow("XP: " + props.getCurrentXP() + " / " + props.getMaxXP(), x, y - 10 , 0xffFFFFFF);
-       //	this.mc.fontRendererObj.drawStringWithShadow("Power: " + props.getCurrentPower() + " / " + props.getMaxPower(), x, y - 20 , 0xffFFFFFF);
-       // }
-		
-		
-		}
+		ScaledResolution scaled = new ScaledResolution(mc);
+		LevelInfo level = PlayerLevelInfo.getLevelInfo(mc.thePlayer);
+
+		float xPos = 0.002F;
+		float yPos = 0.24F;
+
+		int x = (int)(xPos * scaled.getScaledWidth()) * 4;
+		int y = (int)(yPos * scaled.getScaledHeight()) * 4;
+
+		// if(level.getXp() != 0 || level.getLevel() > 1){
+		mc.fontRendererObj.drawString("Current Level: " + level.getLevel(), x, y, 0xffFFFFFF);
+		mc.fontRendererObj.drawString("XP: " + level.getXp() + " / " + level.getMaxXp(), x, y - 10 , 0xffFFFFFF);
+		//this.mc.fontRendererObj.drawStringWithShadow("Power: " + props.getCurrentPower() + " / " + props.getMaxPower(), x, y - 20 , 0xffFFFFFF);
+		// }
+	}
 }
