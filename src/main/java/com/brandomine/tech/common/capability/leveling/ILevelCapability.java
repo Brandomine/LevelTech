@@ -1,6 +1,4 @@
-package com.brandomine.tech.common.leveling.capabilities;
-
-import com.brandomine.tech.common.leveling.LevelInfo;
+package com.brandomine.tech.common.capability.leveling;
 
 public interface ILevelCapability {
 		LevelInfo getInfo();

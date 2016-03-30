@@ -1,11 +1,11 @@
 package com.brandomine.tech.common;
 
 import com.brandomine.tech.client.hud.HUDLevelBar;
+import com.brandomine.tech.common.capability.leveling.ILevelCapability;
+import com.brandomine.tech.common.capability.leveling.ModCapabilities;
 import com.brandomine.tech.common.event.TechEventHandler;
 import com.brandomine.tech.common.init.ModBlocks;
 import com.brandomine.tech.common.init.ModItems;
-import com.brandomine.tech.common.leveling.capabilities.ILevelCapability;
-import com.brandomine.tech.common.leveling.capabilities.ModCapabilities;
 import com.brandomine.tech.common.lib.Reference;
 import com.brandomine.tech.common.network.TechNetwork;
 import com.brandomine.tech.common.proxy.CommonProxy;

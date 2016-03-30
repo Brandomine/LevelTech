@@ -1,7 +1,7 @@
 package com.brandomine.tech.common.network;
 
 import com.brandomine.tech.common.MainRegistry;
-import com.brandomine.tech.common.leveling.LevelInfo;
+import com.brandomine.tech.common.capability.leveling.LevelInfo;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

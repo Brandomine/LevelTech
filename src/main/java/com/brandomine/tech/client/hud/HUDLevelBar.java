@@ -2,10 +2,10 @@ package com.brandomine.tech.client.hud;
 
 import org.lwjgl.opengl.GL11;
 
-import com.brandomine.tech.common.leveling.LevelInfo;
-import com.brandomine.tech.common.leveling.PlayerLevelInfo;
-import com.brandomine.tech.common.leveling.capabilities.LevelCapability;
-import com.brandomine.tech.common.leveling.capabilities.LevelStorage;
+import com.brandomine.tech.common.capability.leveling.LevelCapability;
+import com.brandomine.tech.common.capability.leveling.LevelInfo;
+import com.brandomine.tech.common.capability.leveling.LevelStorage;
+import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
 
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

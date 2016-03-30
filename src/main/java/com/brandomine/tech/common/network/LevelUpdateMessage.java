@@ -1,6 +1,6 @@
 package com.brandomine.tech.common.network;
 
-import com.brandomine.tech.common.leveling.LevelInfo;
+import com.brandomine.tech.common.capability.leveling.LevelInfo;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.nbt.NBTTagCompound;

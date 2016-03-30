@@ -1,4 +1,4 @@
-package com.brandomine.tech.common.leveling.capabilities;
+package com.brandomine.tech.common.capability.leveling;
 
 import net.minecraftforge.common.capabilities.CapabilityManager;
 

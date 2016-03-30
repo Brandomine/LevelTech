@@ -1,6 +1,4 @@
-package com.brandomine.tech.common.leveling;
-
-import com.brandomine.tech.common.leveling.capabilities.LevelStorage;
+package com.brandomine.tech.common.capability.leveling;
 
 import net.minecraft.nbt.NBTTagCompound;
 

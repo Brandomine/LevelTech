@@ -1,7 +1,6 @@
-package com.brandomine.tech.common.leveling;
+package com.brandomine.tech.common.capability.leveling;
 
 import com.brandomine.tech.common.MainRegistry;
-import com.brandomine.tech.common.leveling.capabilities.ILevelCapability;
 import com.brandomine.tech.common.network.LevelUpdateMessage;
 import com.brandomine.tech.common.network.TechNetwork;
 

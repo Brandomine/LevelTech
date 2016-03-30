@@ -2,8 +2,8 @@ package com.brandomine.tech.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.brandomine.tech.common.leveling.LevelInfo;
-import com.brandomine.tech.common.leveling.PlayerLevelInfo;
+import com.brandomine.tech.common.capability.leveling.LevelInfo;
+import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;

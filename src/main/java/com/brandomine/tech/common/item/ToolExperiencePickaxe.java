@@ -1,7 +1,7 @@
 package com.brandomine.tech.common.item;
 
-import com.brandomine.tech.common.leveling.LevelInfo;
-import com.brandomine.tech.common.leveling.PlayerLevelInfo;
+import com.brandomine.tech.common.capability.leveling.LevelInfo;
+import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
 import com.brandomine.tech.common.lib.Names;
 import com.brandomine.tech.common.utils.CreativeTab;
 

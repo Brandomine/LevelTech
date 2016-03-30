@@ -3,9 +3,9 @@ package com.brandomine.tech.common.event;
 import java.util.Random;
 
 import com.brandomine.tech.common.MainRegistry;
-import com.brandomine.tech.common.leveling.LevelInfo;
-import com.brandomine.tech.common.leveling.PlayerLevelInfo;
-import com.brandomine.tech.common.leveling.capabilities.ILevelCapability;
+import com.brandomine.tech.common.capability.leveling.ILevelCapability;
+import com.brandomine.tech.common.capability.leveling.LevelInfo;
+import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
 import com.brandomine.tech.common.lib.Reference;
 import com.brandomine.tech.common.network.LevelUpdateMessage;
 import com.brandomine.tech.common.network.TechNetwork;
