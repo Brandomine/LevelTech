@@ -66,13 +66,13 @@ public class LevelInfo {
 	}
 	
 	public void levelUp(int levels){
-		level += levels;
+		this.level += levels;
 	}
 	
 	public void addXp(int amount){
 		int runAmount = amount;
 		while(runAmount != 0){
-			xp = xp + 1;
+			this.xp = xp + 1;
 			if(xp == maxXp){
 				levelUp(1);
 				setXp(0);
