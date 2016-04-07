@@ -13,5 +13,6 @@ public class TechNetwork {
 	
 	public static void init(){
 		networkWrapper.registerMessage(LevelUpdateMessageHandler.class, LevelUpdateMessage.class, discriminatorCount++, Side.CLIENT);
+		networkWrapper.registerMessage(PowerUpdateMessageHandler.class, PowerUpdateMessage.class, discriminatorCount++, Side.CLIENT);
 	}
 }

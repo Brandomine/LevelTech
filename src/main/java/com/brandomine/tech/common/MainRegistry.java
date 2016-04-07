@@ -1,8 +1,9 @@
 package com.brandomine.tech.common;
 
 import com.brandomine.tech.client.hud.HUDLevelBar;
+import com.brandomine.tech.common.capability.ModCapabilities;
 import com.brandomine.tech.common.capability.leveling.ILevelCapability;
-import com.brandomine.tech.common.capability.leveling.ModCapabilities;
+import com.brandomine.tech.common.capability.power.IPowerCapability;
 import com.brandomine.tech.common.event.TechEventHandler;
 import com.brandomine.tech.common.init.ModBlocks;
 import com.brandomine.tech.common.init.ModItems;
@@ -35,6 +36,9 @@ public class MainRegistry
 	
 	@CapabilityInject(ILevelCapability.class)
 	public static final Capability<ILevelCapability> CAPABILITY_LEVEL = null;
+	
+	@CapabilityInject(IPowerCapability.class)
+	public static final Capability<IPowerCapability> CAPABILITY_POWER = null;
 	
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event){
