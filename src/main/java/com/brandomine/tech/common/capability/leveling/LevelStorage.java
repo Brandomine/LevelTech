@@ -20,7 +20,7 @@ public class LevelStorage implements IStorage<ILevelCapability>{
 	@Override
 	public void readNBT(Capability<ILevelCapability> capability, ILevelCapability instance, EnumFacing side, NBTBase nbt) {
 		if(instance != null && instance.getInfo() == null){
-			instance.setInfo(new LevelInfo(1,0,20));
+			instance.setInfo(new LevelInfo(1,0,20, 0, 3));
 		}
 		if(nbt instanceof NBTTagCompound && instance != null && instance.getInfo() != null){
 			instance.getInfo().readFromNBT((NBTTagCompound) nbt);

@@ -14,7 +14,7 @@ public class LevelUpdateMessage implements IMessage{
 		
 	}
 	
-	LevelInfo toSend = new LevelInfo(0, 0);
+	LevelInfo toSend = new LevelInfo(0, 0, 0, 0);
 	
 	public LevelUpdateMessage(LevelInfo toSend){
 		this.toSend = toSend;

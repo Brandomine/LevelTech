@@ -6,8 +6,6 @@ import com.brandomine.tech.common.capability.leveling.LevelCapability;
 import com.brandomine.tech.common.capability.leveling.LevelInfo;
 import com.brandomine.tech.common.capability.leveling.LevelStorage;
 import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
-import com.brandomine.tech.common.capability.power.PlayerPowerInfo;
-import com.brandomine.tech.common.capability.power.PowerInfo;
 import com.brandomine.tech.common.utils.DoubleConverter;
 
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -48,7 +46,6 @@ public class HUDLevelBar extends Gui{
 		
 		ScaledResolution scaled = new ScaledResolution(mc);
 		LevelInfo level = PlayerLevelInfo.getLevelInfo(mc.thePlayer);
-		PowerInfo power = PlayerPowerInfo.getPowerInfo(mc.thePlayer);
 		TickEvent ticks = new TickEvent.RenderTickEvent(null, zLevel);
 		DoubleConverter converter = new DoubleConverter();
 
@@ -60,6 +57,6 @@ public class HUDLevelBar extends Gui{
 		
 		this.mc.fontRendererObj.drawString("Current Level: " + converter.doubleToString(level.getLevel()), x, y, 0xffFFFFFF);
 		this.mc.fontRendererObj.drawString("XP: " + converter.doubleToString(level.getXp()) + " / " + converter.doubleToString(level.getMaxXp()), x, y - 10 , 0xffFFFFFF);
-		this.mc.fontRendererObj.drawString("Power: " + converter.doubleToString(power.getPower()) + " / " + converter.doubleToString(power.getMaxPower()), x, y - 20 , 0xffFFFFFF);
+		this.mc.fontRendererObj.drawString("Power: " + converter.doubleToString(level.getPower()) + " / " + converter.doubleToString(level.getMaxPower()), x, y - 20 , 0xffFFFFFF);
 	}
 }

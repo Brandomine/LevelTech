@@ -28,7 +28,7 @@ public class PlayerLevelInfo {
 	
 	public static void modifyLevelInfo(EntityPlayer player, LevelInfo level){
 		LevelInfo info = getLevelInfo(player);
-		saveLevelInfo(player, new LevelInfo(level.getLevel() + info.getLevel(), level.getMaxXp() + info.getMaxXp(), info.getXp() + level.getXp()));
+		saveLevelInfo(player, new LevelInfo(level.getLevel() + info.getLevel(), level.getMaxXp() + info.getMaxXp(), info.getXp() + level.getXp(), level.getPower() + info.getPower(), level.getPower() + info.getPower()));
 	}
 
 }
