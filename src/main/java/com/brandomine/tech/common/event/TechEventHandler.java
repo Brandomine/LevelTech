@@ -15,6 +15,7 @@ import com.brandomine.tech.common.network.PowerUpdateMessage;
 import com.brandomine.tech.common.network.TechNetwork;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -160,8 +161,6 @@ public class TechEventHandler {
 			TechNetwork.networkWrapper.sendTo(new PowerUpdateMessage(PlayerPowerInfo.getPowerInfo((EntityPlayer) e.getEntity())), (EntityPlayerMP) e.getEntity());
 		}
 	}
-	
-	
 	
 	@SubscribeEvent
 	public void onDrops(BlockEvent.HarvestDropsEvent event){

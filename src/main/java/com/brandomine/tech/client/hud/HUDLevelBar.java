@@ -8,6 +8,7 @@ import com.brandomine.tech.common.capability.leveling.LevelStorage;
 import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
 import com.brandomine.tech.common.capability.power.PlayerPowerInfo;
 import com.brandomine.tech.common.capability.power.PowerInfo;
+import com.brandomine.tech.common.utils.DoubleConverter;
 
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -49,33 +50,16 @@ public class HUDLevelBar extends Gui{
 		LevelInfo level = PlayerLevelInfo.getLevelInfo(mc.thePlayer);
 		PowerInfo power = PlayerPowerInfo.getPowerInfo(mc.thePlayer);
 		TickEvent ticks = new TickEvent.RenderTickEvent(null, zLevel);
+		DoubleConverter converter = new DoubleConverter();
 
 		float xPos = 0.002F;
 		float yPos = 0.24F;
 		
-		GL11.glPushMatrix();
-		GL11.glEnable(GL11.GL_BLEND);
-		
 		int x = (int)(xPos * scaled.getScaledWidth()) * 4;
 		int y = (int)(yPos * scaled.getScaledHeight()) * 4;
 		
-		double oldXp = 0;
-		double oldPower = 0;
-		
-		if(oldXp != level.getXp() || oldPower != power.getPower()){
-			oldXp = level.getXp();
-			oldPower = power.getPower();
-			int runAmount = 5;
-			while(runAmount != 0){
-				this.mc.fontRendererObj.drawString("Current Level: " + level.getLevel(), x, y, 0xffFFFFFF);
-				this.mc.fontRendererObj.drawString("XP: " + level.getXp() + " / " + level.getMaxXp(), x, y - 10 , 0xffFFFFFF);
-				this.mc.fontRendererObj.drawString("Power: " + power.getPower() + " / " + power.getMaxPower(), x, y - 20 , 0xffFFFFFF);
-				runAmount --;
-			}
-		}
-		
-		///this.mc.fontRendererObj.drawString("Current Level: " + level.getLevel(), x, y, 0xffFFFFFF);
-		///this.mc.fontRendererObj.drawString("XP: " + level.getXp() + " / " + level.getMaxXp(), x, y - 10 , 0xffFFFFFF);
-		///this.mc.fontRendererObj.drawString("Power: " + power.getPower() + " / " + power.getMaxPower(), x, y - 20 , 0xffFFFFFF);
+		this.mc.fontRendererObj.drawString("Current Level: " + converter.doubleToString(level.getLevel()), x, y, 0xffFFFFFF);
+		this.mc.fontRendererObj.drawString("XP: " + converter.doubleToString(level.getXp()) + " / " + converter.doubleToString(level.getMaxXp()), x, y - 10 , 0xffFFFFFF);
+		this.mc.fontRendererObj.drawString("Power: " + converter.doubleToString(power.getPower()) + " / " + converter.doubleToString(power.getMaxPower()), x, y - 20 , 0xffFFFFFF);
 	}
 }
