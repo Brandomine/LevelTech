@@ -53,6 +53,5 @@ public class MainRegistry
     
     @EventHandler
     public void postinit(FMLPostInitializationEvent event){
-    	
     }
 }

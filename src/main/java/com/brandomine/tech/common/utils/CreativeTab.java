@@ -12,7 +12,7 @@ public class CreativeTab {
         @Override
         public Item getTabIconItem()
         {
-            return Items.bone;
+            return Items.BONE;
         }
     };
 }

@@ -1,5 +1,6 @@
 package com.brandomine.tech.common.init;
 
+import com.brandomine.tech.common.item.ItemMaxPowerExpand;
 import com.brandomine.tech.common.item.ToolExperiencePickaxe;
 //import com.brandomine.tech.common.item.ItemEnderCapacitor;
 //import com.brandomine.tech.common.item.ItemExperiencePickaxe;
@@ -23,14 +24,17 @@ public class ModItems {
 	public static ToolMaterial enumToolMaterialPower = EnumHelper.addToolMaterial("power", 5, 0, 11.0F, 5.0F, 30);
 	
 	public static ToolExperiencePickaxe toolExperiencePickaxe;
+	public static ItemMaxPowerExpand itemMaxPowerExpand;
 	
 	public static void init(){
 		toolExperiencePickaxe = new ToolExperiencePickaxe(enumToolMaterialExperience);
+		itemMaxPowerExpand = new ItemMaxPowerExpand();
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public static void initModels(){
 	//	itemEnderCapacitor.initModel();
 		toolExperiencePickaxe.initModel();
+		itemMaxPowerExpand.initModel();
 	}
 }

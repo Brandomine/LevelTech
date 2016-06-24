@@ -6,11 +6,15 @@ import com.brandomine.tech.common.MainRegistry;
 import com.brandomine.tech.common.capability.leveling.ILevelCapability;
 import com.brandomine.tech.common.capability.leveling.LevelInfo;
 import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
+import com.brandomine.tech.common.init.ModItems;
 import com.brandomine.tech.common.lib.Reference;
 import com.brandomine.tech.common.network.LevelUpdateMessage;
 import com.brandomine.tech.common.network.TechNetwork;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -94,24 +98,24 @@ public class TechEventHandler {
 	event.addCapability(new ResourceLocation(Reference.MODID + ":LevelCap"), new ProviderLevel(new LevelInfo(0, 20, 0, 3)));
 }
 
-@SubscribeEvent
-public void onPlayerCloned(PlayerEvent.Clone e) {
-	PlayerLevelInfo.saveLevelInfo(e.getEntityPlayer(), PlayerLevelInfo.getLevelInfo(e.getOriginal()));
-}
-
-@SubscribeEvent
-public void joinWorld(EntityJoinWorldEvent e) {
-	if (!e.getWorld().isRemote && e.getEntity() instanceof EntityPlayer) {
-		TechNetwork.networkWrapper.sendTo(new LevelUpdateMessage(PlayerLevelInfo.getLevelInfo((EntityPlayer) e.getEntity())), (EntityPlayerMP) e.getEntity());
+	@SubscribeEvent
+	public void onPlayerCloned(PlayerEvent.Clone e) {
+		PlayerLevelInfo.saveLevelInfo(e.getEntityPlayer(), PlayerLevelInfo.getLevelInfo(e.getOriginal()));
 	}
-}
 
-@SubscribeEvent
-public void onDrops(BlockEvent.HarvestDropsEvent event){
-	Random r = new Random();
-	if (event.getState().getBlock() == Blocks.coal_ore){
-		//		event.getDrops().add(new ItemStack(ModItems.itemPowerUpRefill));
-		event.setDropChance(1.0F);
-	} 
-}
+	@SubscribeEvent
+	public void joinWorld(EntityJoinWorldEvent e) {
+		if (!e.getWorld().isRemote && e.getEntity() instanceof EntityPlayer) {
+			TechNetwork.networkWrapper.sendTo(new LevelUpdateMessage(PlayerLevelInfo.getLevelInfo((EntityPlayer) e.getEntity())), (EntityPlayerMP) e.getEntity());
+		}
+	}
+
+	@SubscribeEvent
+	public void onDrops(BlockEvent.HarvestDropsEvent event){
+		Random r = new Random();
+		if (event.getState().getBlock() == Blocks.COAL_ORE){
+			//event.getDrops().add(new ItemStack(ModItems.));
+			event.setDropChance(1.0F);
+		}
+	}
 }

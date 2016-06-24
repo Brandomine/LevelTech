@@ -103,7 +103,6 @@ public class LevelInfo {
 				setXp(0);
 				setMaxXp(maxXp + 10);
 				setMaxPower(maxPower + 3);
-				setPower(maxPower);
 			}
 			runAmount = runAmount - 1;
 		}
