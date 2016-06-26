@@ -1,6 +1,7 @@
 package com.brandomine.tech.common.init;
 
 import com.brandomine.tech.common.item.ItemMaxPowerExpand;
+import com.brandomine.tech.common.item.ItemStone;
 import com.brandomine.tech.common.item.ToolExperiencePickaxe;
 //import com.brandomine.tech.common.item.ItemEnderCapacitor;
 //import com.brandomine.tech.common.item.ItemExperiencePickaxe;
@@ -25,10 +26,12 @@ public class ModItems {
 	
 	public static ToolExperiencePickaxe toolExperiencePickaxe;
 	public static ItemMaxPowerExpand itemMaxPowerExpand;
+	public static ItemStone itemStone;
 	
 	public static void init(){
 		toolExperiencePickaxe = new ToolExperiencePickaxe(enumToolMaterialExperience);
 		itemMaxPowerExpand = new ItemMaxPowerExpand();
+		itemStone = new ItemStone();
 	}
 	
 	@SideOnly(Side.CLIENT)

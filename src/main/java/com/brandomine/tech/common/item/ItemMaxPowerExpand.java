@@ -36,7 +36,7 @@ public class ItemMaxPowerExpand extends Item{
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		LevelInfo level = new PlayerLevelInfo().getLevelInfo(playerIn);
 		level.setMaxPower(level.getMaxPower() + 10);
-		playerIn.inventory.deleteStack(new ItemStack(itemStackIn.getItem()));
+		-- itemStackIn.stackSize;
 		return super.onItemRightClick(itemStackIn , worldIn, playerIn, hand);
 	}
 }

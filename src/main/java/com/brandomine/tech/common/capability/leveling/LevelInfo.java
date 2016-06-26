@@ -1,7 +1,10 @@
 package com.brandomine.tech.common.capability.leveling;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fml.common.Mod.Instance;
 
 public class LevelInfo {
 	private double xp = 0;
@@ -83,11 +86,11 @@ public class LevelInfo {
 	
 	public void readFromNBT(NBTTagCompound tag){
 		NBTTagCompound nbt = tag.getCompoundTag("LevelInfo");
-		level = nbt.getDouble("Level");
-		xp = nbt.getDouble("Xp");
-		maxXp = nbt.getDouble("MaxXp");
-		power = nbt.getDouble("Power");
-		maxPower = nbt.getDouble("MaxPower");
+		this.level = nbt.getDouble("Level");
+		this.xp = nbt.getDouble("Xp");
+		this.maxXp = nbt.getDouble("MaxXp");
+		this.power = nbt.getDouble("Power");
+		this.maxPower = nbt.getDouble("MaxPower");
 	}
 	
 	public void levelUp(double levels){
@@ -97,12 +100,12 @@ public class LevelInfo {
 	public void addXp(double amount){
 		double runAmount = amount;
 		while(runAmount != 0){
-			this.xp = xp + 1;
-			if(xp == maxXp){
+			this.xp = this.xp + 1;
+			if(this.xp == this.maxXp){
 				levelUp(1);
 				setXp(0);
-				setMaxXp(maxXp + 10);
-				setMaxPower(maxPower + 3);
+				setMaxXp(this.maxXp + 10);
+				setMaxPower(this.maxPower + 3);
 			}
 			runAmount = runAmount - 1;
 		}

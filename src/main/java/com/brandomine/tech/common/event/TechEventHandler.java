@@ -7,10 +7,12 @@ import com.brandomine.tech.common.capability.leveling.ILevelCapability;
 import com.brandomine.tech.common.capability.leveling.LevelInfo;
 import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
 import com.brandomine.tech.common.init.ModItems;
+import com.brandomine.tech.common.item.ToolExperiencePickaxe;
 import com.brandomine.tech.common.lib.Reference;
 import com.brandomine.tech.common.network.LevelUpdateMessage;
 import com.brandomine.tech.common.network.TechNetwork;
 
+import jline.internal.Log;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -25,6 +27,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -95,8 +98,42 @@ public class TechEventHandler {
 				this.info.readFromNBT(nbt);
 			}
 		}
-	event.addCapability(new ResourceLocation(Reference.MODID + ":LevelCap"), new ProviderLevel(new LevelInfo(0, 20, 0, 3)));
-}
+		event.addCapability(new ResourceLocation(Reference.MODID + ":LevelCap"), new ProviderLevel(new LevelInfo(null)));
+	}
+	@SubscribeEvent
+	public void onBlockStartBreakEvent(BlockEvent.BreakEvent event){
+		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+		LevelInfo level = new PlayerLevelInfo().getLevelInfo(player);
+		if(player.inventory.hasItemStack(new ItemStack(ModItems.itemStone))){
+			if(!player.inventory.hasItemStack(new ItemStack(ModItems.toolExperiencePickaxe))){
+				if(event.getState().getBlock() == Blocks.STONE){
+					level.addXp(1);
+				}
+				if(event.getState().getBlock() == Blocks.COAL_ORE){
+					level.addXp(2);
+				}
+				if(event.getState().getBlock() == Blocks.IRON_ORE){
+					level.addXp(5);
+				}
+				if(event.getState().getBlock() == Blocks.GOLD_ORE){
+					level.addXp(7);
+				}
+				if(event.getState().getBlock() == Blocks.REDSTONE_ORE){
+					level.addXp(3);
+				}
+				if(event.getState().getBlock() == Blocks.DIAMOND_ORE){
+					level.addXp(10);
+				}
+				if(event.getState().getBlock() == Blocks.EMERALD_ORE){
+					level.addXp(20);
+				}
+				if(event.getState().getBlock() == Blocks.QUARTZ_ORE){
+					level.addXp(4);
+				}
+			}
+
+		}
+	}
 
 	@SubscribeEvent
 	public void onPlayerCloned(PlayerEvent.Clone e) {
