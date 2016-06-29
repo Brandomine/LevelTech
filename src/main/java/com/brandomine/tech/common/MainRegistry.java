@@ -4,6 +4,7 @@ import com.brandomine.tech.client.hud.HUDLevelBar;
 import com.brandomine.tech.common.event.TechEventHandler;
 import com.brandomine.tech.common.init.ModBlocks;
 import com.brandomine.tech.common.init.ModItems;
+import com.brandomine.tech.common.init.ModRecipes;
 import com.brandomine.tech.common.lib.Reference;
 import com.brandomine.tech.common.proxy.CommonProxy;
 
@@ -41,6 +42,7 @@ public class MainRegistry
     public void init(FMLInitializationEvent event){
     	proxy.registerRenderers();
     	MinecraftForge.EVENT_BUS.register(new TechEventHandler());
+    	ModRecipes.init();
     }
     
     @EventHandler
