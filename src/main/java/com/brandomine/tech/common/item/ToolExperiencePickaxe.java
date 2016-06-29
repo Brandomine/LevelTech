@@ -1,5 +1,6 @@
 package com.brandomine.tech.common.item;
 
+import com.brandomine.tech.common.init.ModItems;
 import com.brandomine.tech.common.lib.Names;
 import com.brandomine.tech.common.utils.CreativeTab;
 
@@ -32,5 +33,13 @@ public class ToolExperiencePickaxe extends ItemPickaxe{
 	@SideOnly(Side.CLIENT)
 	public void initModel(){
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+	}
+	
+	@Override
+	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, EntityPlayer player) {
+		if(player.inventory.hasItemStack(new ItemStack(ModItems.itemStone))){
+			
+		}
+		return super.onBlockStartBreak(itemstack, pos, player);
 	}
 }
