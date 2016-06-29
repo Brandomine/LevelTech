@@ -2,9 +2,6 @@ package com.brandomine.tech.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.brandomine.tech.common.capability.leveling.LevelInfo;
-import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
-
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
@@ -31,7 +28,6 @@ public class GUIMenu extends GuiScreen{
 	
 	@Override
 	public void initGui(){
-		LevelInfo level = PlayerLevelInfo.getLevelInfo(mc.thePlayer);
 		int guiX = (width - guiWidth) / 2;
 		int guiY = (height - guiHeight) / 2;
 		buttonList.clear();
@@ -40,27 +36,6 @@ public class GUIMenu extends GuiScreen{
 		buttonList.add(button3 = new GuiButton(2, guiX + 10, guiY + 69, 228, 20, "Effects"));
 		buttonList.add(button4 = new GuiButton(3, guiX + 10, guiY + 96, 228, 20, "Sword Effects"));
 		buttonList.add(button5 = new GuiButton(4, guiX + 10, guiY + 123, 228, 20, "Pickaxe Effects"));
-		//Research Button Control
-		if(level.getLevel() >= 5){
-			button2.enabled = true;
-		}else{
-			button2.enabled = false;
-			button2.displayString = "Locked: Level 5";
-		}
-		//Effects Button Control
-		if(level.getLevel() >= 10){
-			button3.enabled = true;
-		}else{
-			button3.enabled = false;
-			if(level.getLevel() < 10){
-				button3.displayString = ("Locked: Level 10.");
-			}else if(level.getLevel() == 0){
-				button3.displayString = "Research Locked: Effects";
-			}
-		}
-		//Sword Effects Button Control
-		
-		//Pickaxe Effects Button Control
 		super.initGui();
 	}
 	

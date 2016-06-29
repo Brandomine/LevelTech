@@ -3,7 +3,6 @@ package com.brandomine.tech.common.item;
 import java.util.List;
 
 import com.brandomine.tech.client.gui.GUIMenu;
-import com.brandomine.tech.common.capability.leveling.LevelStorage;
 import com.brandomine.tech.common.lib.Names;
 import com.brandomine.tech.common.utils.CreativeTab;
 

@@ -1,13 +1,10 @@
 package com.brandomine.tech.common;
 
 import com.brandomine.tech.client.hud.HUDLevelBar;
-import com.brandomine.tech.common.capability.ModCapabilities;
-import com.brandomine.tech.common.capability.leveling.ILevelCapability;
 import com.brandomine.tech.common.event.TechEventHandler;
 import com.brandomine.tech.common.init.ModBlocks;
 import com.brandomine.tech.common.init.ModItems;
 import com.brandomine.tech.common.lib.Reference;
-import com.brandomine.tech.common.network.TechNetwork;
 import com.brandomine.tech.common.proxy.CommonProxy;
 
 import net.minecraft.client.Minecraft;
@@ -33,15 +30,10 @@ public class MainRegistry
 	@SidedProxy(clientSide = "com.brandomine.tech.common.proxy.ClientProxy", serverSide = "com.brandomine.tech.common.proxy.CommonProxy")
 	public static CommonProxy proxy;
 	
-	@CapabilityInject(ILevelCapability.class)
-	public static final Capability<ILevelCapability> CAPABILITY_LEVEL = null;
-	
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event){
 		ModItems.init();
 		proxy.preInit();
-		TechNetwork.init();
-		ModCapabilities.init();
 		//ModBlocks.init();
 		}
 	

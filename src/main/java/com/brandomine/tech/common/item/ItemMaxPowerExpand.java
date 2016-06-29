@@ -1,7 +1,5 @@
 package com.brandomine.tech.common.item;
 
-import com.brandomine.tech.common.capability.leveling.LevelInfo;
-import com.brandomine.tech.common.capability.leveling.PlayerLevelInfo;
 import com.brandomine.tech.common.init.ModItems;
 import com.brandomine.tech.common.lib.Names;
 import com.brandomine.tech.common.utils.CreativeTab;
@@ -34,8 +32,6 @@ public class ItemMaxPowerExpand extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		LevelInfo level = new PlayerLevelInfo().getLevelInfo(playerIn);
-		level.setMaxPower(level.getMaxPower() + 10);
 		-- itemStackIn.stackSize;
 		return super.onItemRightClick(itemStackIn , worldIn, playerIn, hand);
 	}
