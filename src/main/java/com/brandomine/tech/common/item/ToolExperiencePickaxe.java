@@ -37,9 +37,6 @@ public class ToolExperiencePickaxe extends ItemPickaxe{
 	
 	@Override
 	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, EntityPlayer player) {
-		if(player.inventory.hasItemStack(new ItemStack(ModItems.itemStone))){
-			
-		}
 		return super.onBlockStartBreak(itemstack, pos, player);
 	}
 }
